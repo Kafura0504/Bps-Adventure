@@ -43,18 +43,16 @@ public class Objective : MonoBehaviour
         {
             if (objective < 1)
             {
-                move.input.action.Disable();
-                move.move.y = 0;
+                 move.input.action.Disable();
+                 move.isforce = true;
                 move.move.x = 1;
             }
     }
 }
     void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
-        {
-        move.input.action.Enable();
-    }
+        move.isforce = false;
+        move.move.x = 1;
     }
     void Start()
     {
@@ -84,6 +82,10 @@ public class Objective : MonoBehaviour
             yield return new WaitForSeconds(0.03f);
             }
             yield return new WaitForSeconds(1f);
+        }
+        if (objective<1)
+        {
+            move.input.action.Enable();
         }
         canvas.SetActive(false);
     }

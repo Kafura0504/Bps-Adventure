@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine.InputSystem;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.PlayerLoop;
 
 public class hewan : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class hewan : MonoBehaviour
     public TextMeshProUGUI weight;
     public TextMeshProUGUI esmosi;
     public TextMeshProUGUI height;
+    private bool allowed;
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -44,10 +46,22 @@ public class hewan : MonoBehaviour
     }
     void singletap(InputAction.CallbackContext context)
     {
+        if (allowed)
+        {
         if (inrange)
         {
             Debug.Log("Tap tap");
             StartCoroutine(RunningNPC());
+        }    
+        }
+        
+    }
+
+    void Update()
+    {
+        if (RunningText.instance.allowed)
+        {
+            allowed = true;
         }
     }
 

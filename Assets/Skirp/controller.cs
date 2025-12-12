@@ -15,6 +15,7 @@ public class controller : MonoBehaviour
     public float spd;
     public Rigidbody2D rb;
     public Animator anim;
+    public bool isforce;
     private facedir dir = facedir.down;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,7 +26,11 @@ public class controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(move);
+        if (!isforce)
+        {    
         move = input.action.ReadValue<Vector2>();
+        }
         faceorient1();
         rb.linearVelocity = move * spd;
         if (move != Vector2.zero)

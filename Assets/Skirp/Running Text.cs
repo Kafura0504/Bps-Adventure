@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 public class RunningText : MonoBehaviour
 {
+    public static RunningText instance;
     public InputActionReference input;
     public SceneScriptable Scene;
     public TextMeshProUGUI dialoguetext;
@@ -13,10 +14,11 @@ public class RunningText : MonoBehaviour
     private bool inrange;
     public GameObject canvas;
     public Image img;
+    public bool allowed;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        instance = this;
     }
 
     void Update()
@@ -40,6 +42,7 @@ public class RunningText : MonoBehaviour
             }
             yield return new WaitForSeconds(1f);
         }
+        allowed = true;
         canvas.SetActive(false);
     }
 
