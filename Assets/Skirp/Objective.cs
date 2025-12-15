@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Objective : MonoBehaviour
@@ -15,7 +16,7 @@ public class Objective : MonoBehaviour
     public TextMeshProUGUI dialoguetext;
     public Image img;
     public controller move;
-    private int ending;
+    public int ending;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -27,12 +28,15 @@ public class Objective : MonoBehaviour
             }
             else if (objective>=1 && objective<23)
             {
+                move.input.action.Disable();
                 StartCoroutine(RunningNPC(SceneOne));
                 ending =0;
             }
             else
             {
+                move.input.action.Disable();
                 StartCoroutine(RunningNPC(SceneEnding));
+                
                 ending = 1;
             }
         }
@@ -86,6 +90,11 @@ public class Objective : MonoBehaviour
         if (objective<1)
         {
             move.input.action.Enable();
+        }
+        else
+        {
+            move.input.action.Enable();
+            SceneManager.LoadScene(3);
         }
         canvas.SetActive(false);
     }

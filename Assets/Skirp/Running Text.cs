@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 public class RunningText : MonoBehaviour
 {
-    public static RunningText instance;
     public InputActionReference input;
     public SceneScriptable Scene;
     public TextMeshProUGUI dialoguetext;
@@ -14,12 +13,7 @@ public class RunningText : MonoBehaviour
     private bool inrange;
     public GameObject canvas;
     public Image img;
-    public bool allowed;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        instance = this;
-    }
 
     void Update()
     {
@@ -29,6 +23,7 @@ public class RunningText : MonoBehaviour
     IEnumerator RunningNPC()
     {
         canvas.SetActive(true);
+        input.action.Disable();
         for (int i = 0; i < Scene.Dialog.Count; i++)
         {
             img.sprite = Scene.Dialog[i].Speaker.img;
@@ -42,7 +37,7 @@ public class RunningText : MonoBehaviour
             }
             yield return new WaitForSeconds(1f);
         }
-        allowed = true;
+        input.action.Enable();
         canvas.SetActive(false);
     }
 
@@ -55,7 +50,6 @@ public class RunningText : MonoBehaviour
     void OnDisable()
     {
         input.action.performed -= singletap;
-        input.action.Disable();
     }
     void singletap(InputAction.CallbackContext context)
     {

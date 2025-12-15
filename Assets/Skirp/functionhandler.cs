@@ -5,7 +5,7 @@ public class functionhandler : MonoBehaviour
     public void play()
     {
         SceneManager.LoadScene(1);
-        dontdestroyaudio.instance.SetState(audiostate.ingame);
+        dontdestroyaudio.instance.SetState();
     }
     public void quit()
     {

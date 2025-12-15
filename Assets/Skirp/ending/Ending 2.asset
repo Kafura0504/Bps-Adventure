@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1999169905a27b47ac96efbb4f5116d, type: 3}
+  m_Name: Ending 2
+  m_EditorClassIdentifier: 
+  Dialog:
+  - Dialogue: Akhirnyaaa selesai setelah ngedata selama 177013 Jam aku menyelesaikan
+      ini
+    Speaker: {fileID: 11400000, guid: a3c26db1143e4a443b36e2192140fd2b, type: 2}
+  - Dialogue: capek banget. pulang pulang aku mau mandi terus tidur.
+    Speaker: {fileID: 11400000, guid: a3c26db1143e4a443b36e2192140fd2b, type: 2}
+  - Dialogue: Orang kantor pasti akan bangga karena aku mendata dengan baik
+    Speaker: {fileID: 11400000, guid: a3c26db1143e4a443b36e2192140fd2b, type: 2}
+  - Dialogue: Mereka tidak bangga. karena itu emang pekerjaannya
+    Speaker: {fileID: 0}
+  - Dialogue: 'Ending 1: Good worker'
+    Speaker: {fileID: 0}

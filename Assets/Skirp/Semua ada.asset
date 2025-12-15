@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1999169905a27b47ac96efbb4f5116d, type: 3}
   m_Name: Semua ada
   m_EditorClassIdentifier: 
-  Dialog: []
+  Dialog:
+  - Dialogue: Akhirnyaaaaaa selesai ngedatanya.
+    Speaker: {fileID: 11400000, guid: a3c26db1143e4a443b36e2192140fd2b, type: 2}
+  - Dialogue: Dah yuk pulang.
+    Speaker: {fileID: 11400000, guid: a3c26db1143e4a443b36e2192140fd2b, type: 2}

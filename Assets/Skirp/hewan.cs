@@ -18,7 +18,8 @@ public class hewan : MonoBehaviour
     public TextMeshProUGUI weight;
     public TextMeshProUGUI esmosi;
     public TextMeshProUGUI height;
-    private bool allowed;
+    private bool done;
+    public Objective tujuan;
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -42,32 +43,31 @@ public class hewan : MonoBehaviour
     void OnDisable()
     {
         input.action.performed -= singletap;
-        input.action.Disable();
     }
     void singletap(InputAction.CallbackContext context)
     {
-        if (allowed)
-        {
+
         if (inrange)
         {
             Debug.Log("Tap tap");
             StartCoroutine(RunningNPC());
         }    
-        }
-        
     }
 
     void Update()
     {
-        if (RunningText.instance.allowed)
-        {
-            allowed = true;
-        }
+
     }
 
     IEnumerator RunningNPC()
     {
+        if (!done)
+        {
+            done = true;
+            tujuan.objective += 1;
+        }
         canvas.SetActive(true);
+        input.action.Disable();
         height.text = animal.height.ToString();
         weight.text = animal.weight.ToString();
         esmosi.text = animal.esmosi.ToString();
@@ -81,6 +81,7 @@ public class hewan : MonoBehaviour
             yield return new WaitForSeconds(0.03f);
             }
             yield return new WaitForSeconds(1f);
+            input.action.Enable();
         canvas.SetActive(false);
     }
 }

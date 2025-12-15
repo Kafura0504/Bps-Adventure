@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1999169905a27b47ac96efbb4f5116d, type: 3}
+  m_Name: Ending 1
+  m_EditorClassIdentifier: 
+  Dialog:
+  - Dialogue: Okeh selesaiii.
+    Speaker: {fileID: 11400000, guid: a3c26db1143e4a443b36e2192140fd2b, type: 2}
+  - Dialogue: Meski ga semuanya yang penting ada datanya.
+    Speaker: {fileID: 11400000, guid: a3c26db1143e4a443b36e2192140fd2b, type: 2}
+  - Dialogue: Peduli apa di kantor kan ga tau di lapangan ada berapa hewannya.
+    Speaker: {fileID: 11400000, guid: a3c26db1143e4a443b36e2192140fd2b, type: 2}
+  - Dialogue: Pokoknya balik ada datanya.
+    Speaker: {fileID: 11400000, guid: a3c26db1143e4a443b36e2192140fd2b, type: 2}
+  - Dialogue: 'Ending 0: Pemalas'
+    Speaker: {fileID: 0}

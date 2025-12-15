@@ -1,46 +1,65 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum audiostate
 {
     menu,
-    ingame
+    ingame,
+    story,
+    ending
 }
+
 public class dontdestroyaudio : MonoBehaviour
 {
     private audiostate state;
     public static dontdestroyaudio instance;
     public audiohandler audioclips;
     public AudioSource source;
-    public bool isfirst;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
         if (instance != null && instance != this)
         {
-            Destroy(gameObject);   // Destroy the NEW duplicate
+            Destroy(gameObject);
             return;
         }
-        else
+
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        SceneManager.activeSceneChanged += OnSceneChanged;
+
+        UpdateStateFromSceneIndex(SceneManager.GetActiveScene().buildIndex);
+        SetState();
+    }
+
+    void OnSceneChanged(Scene oldScene, Scene newScene)
+    {
+        UpdateStateFromSceneIndex(newScene.buildIndex);
+        SetState();
+    }
+
+    void UpdateStateFromSceneIndex(int index)
+    {
+        switch (index)
         {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        if (isfirst)
-        {
-            state=audiostate.menu;
-            isfirst = false;
+            case 0:
+                state = audiostate.menu;
+                break;
+            case 1:
+                state = audiostate.story;
+                break;
+            case 2:
+                state = audiostate.ingame;
+                break;
+            case 3:
+                state = audiostate.ending;
+                break;
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetState()
     {
-        
-    }
-    public void SetState(audiostate newState)
-    {
-        state = newState;
-
         switch (state)
         {
             case audiostate.menu:
@@ -51,7 +70,13 @@ public class dontdestroyaudio : MonoBehaviour
                 source.clip = audioclips.audio[1];
                 break;
 
+            case audiostate.story:
+                source.clip = audioclips.audio[2];
+                break;
 
+            case audiostate.ending:
+                source.clip = audioclips.audio[3];
+                break;
         }
 
         source.Play();

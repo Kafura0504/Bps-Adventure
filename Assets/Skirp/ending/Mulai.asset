@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1999169905a27b47ac96efbb4f5116d, type: 3}
+  m_Name: Mulai
+  m_EditorClassIdentifier: 
+  Dialog:
+  - Dialogue: Akhirnya bisa kerja. setelah 6 atau 7 tahun menganggur aku keterima
+      kerja di BPS.
+    Speaker: {fileID: 11400000, guid: a3c26db1143e4a443b36e2192140fd2b, type: 2}
+  - Dialogue: Untuk tugas pertama, aku disuruh mendata di desa aborigin. agak jauh
+      dari kota sih. tapi mau gimana lagi.
+    Speaker: {fileID: 11400000, guid: a3c26db1143e4a443b36e2192140fd2b, type: 2}
+  - Dialogue: ayok cepet dikelarin cepet pulang
+    Speaker: {fileID: 11400000, guid: a3c26db1143e4a443b36e2192140fd2b, type: 2}
